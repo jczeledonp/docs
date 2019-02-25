@@ -1,29 +1,29 @@
-## Простая форма
+## Simple Form
 ```
 [!FormLister?
 &formid=`basic`
 &rules=`
 {
 	"name":{
-		"required":"Обязательно введите имя",
+		"required":"Please provide your name",
 		"matches":{
 			"params":"\/^[\\pL\\s\\-']++$\/uD",
-			"message":"Введите имя правильно"
+			"message":"Enter you full name"
 		}
 	},
 	"email":{
-		"required":"Обязательно введите email",
-		"email":"Введите email правильно"
+		"required":"Please provide email",
+		"email":"Enter a valid email address"
 	},
 	"phone":{
-		"required":"Обязательно введите номер телефона",
-		"phone":"Введите номер правильно"
+		"required":"Please provide contact phone",
+		"phone":"Enter a valid phone number"
 	},
 	"message":{
-		"required":"Обязательно введите сообщение",
+		"required":"Please write your message",
 		"minLength":{
 			"params":10,
-			"message":"Сообщение должно быть не менее 10 символов"
+			"message":"Message must be at least 10 characters"
 		}
 	}
 }`
@@ -34,9 +34,9 @@
 			<form class="form-horizontal" method="post">
 				<input type="hidden" name="formid" value="basic">
 				<div class="form-group[+name.errorClass+][+name.requiredClass+]">
-					<label for="name" class="col-sm-2 control-label">* Имя</label>
+					<label for="name" class="col-sm-2 control-label">* Name</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="name" placeholder="Имя" name="name" value="[+name.value+]">
+						<input type="text" class="form-control" id="name" placeholder="Name" name="name" value="[+name.value+]">
 						[+name.error+]
 					</div>
 				</div>
@@ -48,7 +48,7 @@
 					</div>
 				</div>
 				<div class="form-group[+phone.errorClass+][+phone.requiredClass+]">
-					<label for="phone" class="col-sm-2 control-label">* Телефон</label>
+					<label for="phone" class="col-sm-2 control-label">* Phone</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="phone" placeholder="+375 29 123 45 67" name="phone" value="[+phone.value+]">
 						[+phone.error+]
@@ -56,16 +56,16 @@
 				</div>
 
 				<div class="form-group[+message.errorClass+][+message.requiredClass+]">
-					<label for="message" class="col-sm-2 control-label">* Сообщение</label>
+					<label for="message" class="col-sm-2 control-label">* Message</label>
 					<div class="col-sm-10">
-						<textarea class="form-control" id="message" placeholder="Ваше сообщение" name="message" rows="10">[+message+]</textarea>
+						<textarea class="form-control" id="message" placeholder="Write your message here" name="message" rows="10">[+message+]</textarea>
 						[+message.error+]
 					</div>
 				</div>
 				[+form.messages+]
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-envelope"></i> Отправить</button>
+						<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-envelope"></i> Send</button>
 					</div>
 				</div>
 			</form>
@@ -75,16 +75,16 @@
 &to=`test@test.com`
 &ccSender=`1`
 &ccSenderField=`email`
-&ccSenderTpl=`@CODE:Спасибо за обращение, [+name.value+]`
+&ccSenderTpl=`@CODE:Contact request from [+name.value+]`
 &reportTpl=`@CODE:
-<p>Имя: [+name.value+]</p>
-<p>Телефон: [+phone.value+]</p>
+<p>Name: [+name.value+]</p>
+<p>Phone: [+phone.value+]</p>
 <p>Email: <a href="mailto:[+email.value+]">[+email.value+]</a></p>
-<p>Сообщение: [+message:strip_tags:nl2br+]</p>
+<p>Message: [+message:strip_tags:nl2br+]</p>
 `
 &errorClass=` has-error`
 &requiredClass=` has-warning`
-&subject=`Новое сообщение`
+&subject=`New contact request`
 &messagesOuterTpl=`@CODE:<div class="alert alert-danger" role="alert">[+messages+]</div>`
 &errorTpl=`@CODE:<span class="help-block">[+message+]</span>`
 !]
