@@ -30,7 +30,7 @@
 			<form class="form-horizontal" method="post">
 				<input type="hidden" name="formid" value="basic">
 				<div class="form-group[+name.errorClass+][+name.requiredClass+]">
-					<label for="name" class="col-sm-2 control-label">* Имя</label>
+					<label for="name" class="col-sm-2 control-label">* Name</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="name" placeholder="Name" name="name" value="[+name.value+]">
 						[+name.error+]
@@ -78,7 +78,7 @@
 </div>`
 &errorClass=` has-error`
 &requiredClass=` has-warning`
-&subject=`Новое сообщение`
+&subject=`New contact request`
 &messagesOuterTpl=`@CODE:<div class="alert alert-danger" role="alert">[+messages+]</div>`
 &errorTpl=`@CODE:<span class="help-block">[+message+]</span>`
 !]
